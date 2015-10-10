@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,22 +8,8 @@
     </head>
     <body>
         <div class="container">
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}" id="msg{{forloop.counter0}}">
-                        <button data-dismiss="alert" class="close">
-                        &times;
-                        </button>
-                        <i class="fa fa-check-circle"></i>
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% include "django_messages.html" %}
         </div>
     </body>
-    <script type="text/javascript">
-    document.getElementById('msg0').addEventListener('click',function(e){
-        document.getElementById('msg0').style.display = 'none';
-    });
-    </script>
+    <script src="{% static 'django_messages.js' %}"></script>
 </html>

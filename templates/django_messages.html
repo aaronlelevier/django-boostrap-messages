@@ -1,0 +1,11 @@
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}" id="msg{{forloop.counter0}}">
+            <button data-dismiss="alert" class="close">
+            &times;
+            </button>
+            <i class="fa fa-check-circle"></i>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
